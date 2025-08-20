@@ -193,7 +193,7 @@ dialog[open] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: min(500px, 50vw);
+  width: min(500px, 80vw);
   min-height: 50vh;
   justify-self: center;
   align-self: center;
