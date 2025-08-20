@@ -1,0 +1,231 @@
+
+:root {
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-primary: 'Proza Libre', Montserrat, sans-serif, var(--system-ui);
+  --font-title: clamp(2rem, 5vw, 4rem);
+  --book-title: clamp(0.8rem, 2vw, 1.5rem);
+  --book-label: 0.6rem; 
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  /* gap: 1.5rem; */
+  font-family: var(--font-primary);
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+.header {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://4kwallpapers.com/images/wallpapers/abstract-background-2560x1080-11753.jpeg');
+  min-width: 100vw;
+  min-height: 50vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #f0efe7;
+}
+
+.header #addBookBtn {
+  background: transparent;
+  color:  #f0efe7;
+  border: 3px solid #f0efe7;
+
+}
+
+.header #addBookBtn:hover {
+  position: relative;
+  top: -2px;
+  box-shadow: 5px 5px 15px 5px rgba(240,239,231,0.46);
+}
+
+h1 {
+    font-size: var(--font-title)
+}
+
+#addBookBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.book-section {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-top: 1rem;
+}
+
+.book-section h4 {
+  font-size: clamp(1rem, 3vw, 2rem)
+}
+
+
+.book-library {
+    /* border: 2px solid black; */
+    width: min(1000px, 80vw);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    height: 100%;
+}
+
+.book-item {
+    border: 2px solid #787276;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.46); */
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: auto;
+}
+
+.book-item .title {
+  flex-grow: 1;
+  font-size: var(--book-title);
+  font-weight: 600;
+}
+
+.book-item .remove {
+  display: flex; 
+  width: 100%;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  border: none;
+  background: white;
+  border-top: 2px solid #ddd;
+  cursor: pointer;
+}
+
+.book-item .remove:hover {
+  box-shadow: inset 0px 3px 22px 0px rgba(0,0,0,0.13);
+}
+
+
+.status-controls {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 0.5rem;
+}
+
+.read, .unread {
+    padding: 5px 1rem;
+    border:none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.read {
+    background: #3a5a40;
+    color: white;
+}
+
+.unread {
+    background: #dad7cd;
+}
+
+form {
+  display: flex; 
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+dialog[open] {
+  border: none; 
+  border-radius: 1rem; 
+  padding: 1rem; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(500px, 50vw);
+  min-height: 50vh;
+  justify-self: center;
+  align-self: center;
+  gap: 1.5rem;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+form input, form select {
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+    border: 1px solid #30343f;
+}
+
+form menu {
+  display: flex; 
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+menu button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  /* border: 2px solid #787276; */
+  background: #ee6c4d;
+  cursor: pointer;
+}
+
+menu button:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
